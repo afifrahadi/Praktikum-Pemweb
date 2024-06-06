@@ -1,0 +1,43 @@
+/* Afif Imam Rahadi - L0122006 */
+
+.home
+{
+    margin-top: 10px;
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+.cv
+{
+    margin-top: 10px;
+    font-size: 25px;
+    margin-left: 5px;
+}
+
+.pemweb
+{
+    display: inline-block;
+    margin-left: 70px;
+    font-size: 30px;
+}
+
+h1
+{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.profile-img {
+    animation: slideInFromLeft 1s ease;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

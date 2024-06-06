@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/stylecv.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" >
+        <div class="container-fluid">
+            <h2 class="pemweb">PEMWEB</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html"><p class="home">Home</p></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"><p class="cv">About</p></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cv.html"><p class="cv">CV</p></a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1 class="my-5">My CV</h1>
+    <!-- grid -->
+    <div class="container text-left w-50 border border-4 border-primary">
+        <div class="row ">
+            <div class="col-sm d-flex row ">
+                <div class="row tulisan">
+                    <div class="col-sm border border-primary">Nama</div>
+                    <div class="col-sm border border-primary">: Afif Imam Rahadi</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-primary">NIM</div>
+                    <div class="col-sm border border-primary">: L0122006</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm border border-primary">Prodi</div>
+                    <div class="col-sm border border-primary">: Informatika</div>
+                </div>
+            </div>
+            <div class="col-sm text-center profile-img">
+                <img src="images/FOTO.jpg" width="190px">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 border border-primary">
+                <b>Motivasi :</b> <br>Kalo sekarang udah gampang ngeluh capek, gimana nanti pas udah di dunia kerja.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 border border-primary">
+                <b>Harapan :</b><br>Bisa lulus tepat waktu dengan nilai yang memuaskan dan sudah siap untuk menghadapi dunia kerja.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".pemweb").mouseover(function() {
+                $(this).css("color", "red").css("transition", "color 0.3s ease");
+            });
+
+            $(".pemweb").mouseout(function() {
+                $(this).css("color", "#000");
+            });
+
+            $(".nav-link").mouseover(function() {
+                $(this).css("color", "red").css("transition", "color 0.3s ease");
+            });
+
+            $(".nav-link").mouseout(function() {
+                $(this).css("color", "#000");
+            });
+
+            $(".profile-img img").mouseover(function() {
+                $(this).css("transform", "scale(1.1)").css("transition", "transform 0.3s ease");
+            });
+
+            $(".profile-img img").mouseout(function() {
+                $(this).css("transform", "scale(1)");
+            });
+        });
+    </script>
+</body>
+</html>

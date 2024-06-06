@@ -1,0 +1,91 @@
+.home
+{
+    margin-top: 10px;
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+.cv
+{
+    margin-top: 10px;
+    font-size: 25px;
+    margin-left: 5px;
+}
+
+.pemweb
+{
+    display: inline-block;
+    margin-left: 70px;
+    font-size: 30px;
+}
+
+.progress
+{
+    background-color: grey;
+    justify-content: flex-start;
+    border-radius: 50px;
+    align-items: center;
+    position: relative;
+    display: flex;
+    height: 25px;
+    width: 100%;
+}
+
+.progress p
+{
+    color: white;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.pro-value1
+{
+    animation: load1 3s normal forwards;
+    border-radius: 50px;
+    background-color: black;
+    height: 25px;
+    width: 0;
+}
+
+.animate-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes load1 
+{
+    0%
+    {
+        width: 0;
+    }
+    100%
+    {
+        width: 100%;
+    }
+}
+
+.pro-value2
+{
+    animation: load2 3s normal forwards;
+    border-radius: 50px;
+    background-color: black;
+    height: 25px;
+    width: 0;
+}
+
+@keyframes load2 
+{
+    0%
+    {
+        width: 0;
+    }
+    100%
+    {
+        width: 100%;
+    }
+}

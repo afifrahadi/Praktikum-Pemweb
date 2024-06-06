@@ -1,0 +1,103 @@
+<!--
+Nama    : Afif Imam Rahadi
+NIM     : L0122006
+Kelas   : A
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty Characters</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .container {
+            width: 75%;
+            margin: 0px auto ; 
+            padding: 5px;
+            text-align: center;
+        }
+        .container h1 {
+            font-size: 45px;
+            color: white;
+        }
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        li {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin: 5px;
+            width: 165px;
+            height: 220px;
+        }
+        li:hover {
+            transform: scale(1.1);
+        }
+        a {
+            text-decoration: none;
+            color: #000000;
+            text-align: center;
+            color: white;
+            width: 150px;
+        }
+        .image-api {
+            border-radius: 8px;
+            height: auto;
+            width: 160px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rick and Morty Characters</h1> 
+        <ul id="characterList"></ul>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function getCharacterData() {
+            $.ajax({
+                url: 'https://rickandmortyapi.com/api/character/',
+                method: 'GET',
+                success: function (data) {
+                    displayCharacterData(data.results); 
+                },
+                error: function (err) {
+                    console.log(err); 
+                }
+            });
+        }
+
+        function displayCharacterData(characters) {
+            var characterList = $('#characterList');
+            characterList.empty(); 
+
+            $.each(characters, function (index, character) {
+                var listItem = $('<li>');
+                var link = $('<a>').attr('href', 'detail.html?id=' + character.id);
+                var image = $('<img>').addClass('image-api').attr('src', character.image).attr('alt', character.name);
+                var name = $('<p>').text(character.name);
+                link.append(image, name);
+                listItem.append(link);
+                characterList.append(listItem);
+            });
+        }
+
+        getCharacterData();
+    });
+
+</script>
+</html>

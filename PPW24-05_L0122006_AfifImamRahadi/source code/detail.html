@@ -1,0 +1,115 @@
+<!--
+Nama    : Afif Imam Rahadi
+NIM     : L0122006
+Kelas   : A
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty Characters Details</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 300px;
+            height: 610px;
+            margin: 30px auto ;
+            padding: 10px;
+            background-color: #fff2f7;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #000000;
+            font-size: 40px;
+            margin-bottom: 10px;
+            margin-top: 0px;
+
+        }
+        button {
+            display: block;
+            font-size: 17px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color:  black;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.4s ease;
+        }
+        button:hover {
+            background-color: steelblue;
+        }
+        #character-detail {
+            text-align: center;
+            border-radius: 8px;
+            padding: 1px;
+            color: #000000;
+            height: 470px;
+            margin-bottom: 15px;
+        }
+        #character-detail img {
+            width: 250px;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Character Detail</h1>
+        <div id="character-detail"></div>
+        <button id="back-button"><b>Back to Home</b></button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const characterID = urlParams.get('id');
+
+        function getCharacterByID(id) {
+            $.ajax({
+                url: 'https://rickandmortyapi.com/api/character/' + id,
+                method: 'GET',
+                success: function(data) {
+                    displayCharacterDetail(data); 
+                },
+                error: function(err) {
+                    console.log(err); 
+                }
+            });
+        }
+
+        function displayCharacterDetail(character) {
+            const characterDetail = $('#character-detail');
+            characterDetail.empty();
+            
+            characterDetail.append(`
+                <h2>${character.name}</h2>
+                <img src="${character.image}" alt="${character.name}">
+                <p>Status: ${character.status}</p>
+                <p>Species: ${character.species}</p>
+                ${character.type ? `<p>Type: ${character.type}</p>` : `<p>Type: -</p>`} 
+                <p>Gender: ${character.gender}</p>
+            `);
+        }
+
+        getCharacterByID(characterID);
+
+        $('#back-button').on('click', function() {
+            window.location.href = 'index.html'; 
+        });
+    });
+
+    </script>
+    
+</body>
+</html>
